@@ -1,0 +1,37 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from InventoryTitleImplService WSDL service -->
+
+  <service name="InventoryTitleImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://inventory"/>
+      <parameter name="wsdlServiceElement" value="InventoryTitleImplService"/>
+      <parameter name="schemaQualified" value="http://inventory"/>
+      <parameter name="wsdlServicePort" value="InventoryTitleImpl"/>
+      <parameter name="className" value="inventory.InventoryTitleImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="InventoryTitleImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getAvailiability" qname="operNS:getAvailiability" xmlns:operNS="http://inventory" returnQName="retNS:getAvailiabilityReturn" xmlns:retNS="http://inventory" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:title" xmlns:pns="http://inventory" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="releaseReservation" qname="operNS:releaseReservation" xmlns:operNS="http://inventory" returnQName="retNS:releaseReservationReturn" xmlns:retNS="http://inventory" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:title" xmlns:pns="http://inventory" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:quantity" xmlns:pns="http://inventory" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="setReservation" qname="operNS:setReservation" xmlns:operNS="http://inventory" returnQName="retNS:setReservationReturn" xmlns:retNS="http://inventory" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:title" xmlns:pns="http://inventory" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:quantity" xmlns:pns="http://inventory" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getAvailiability releaseReservation setReservation"/>
+
+  </service>
+</deployment>

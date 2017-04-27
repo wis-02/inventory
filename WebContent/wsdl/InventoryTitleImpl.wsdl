@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://inventory" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://inventory" xmlns:intf="http://inventory" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://inventory" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getAvailiability">
+    <complexType>
+     <sequence>
+      <element name="title" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAvailiabilityResponse">
+    <complexType>
+     <sequence>
+      <element name="getAvailiabilityReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="releaseReservation">
+    <complexType>
+     <sequence>
+      <element name="title" type="xsd:string"/>
+      <element name="quantity" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="releaseReservationResponse">
+    <complexType>
+     <sequence>
+      <element name="releaseReservationReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setReservation">
+    <complexType>
+     <sequence>
+      <element name="title" type="xsd:string"/>
+      <element name="quantity" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setReservationResponse">
+    <complexType>
+     <sequence>
+      <element name="setReservationReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getAvailiabilityRequest">
+
+      <wsdl:part element="impl:getAvailiability" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setReservationResponse">
+
+      <wsdl:part element="impl:setReservationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="releaseReservationRequest">
+
+      <wsdl:part element="impl:releaseReservation" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAvailiabilityResponse">
+
+      <wsdl:part element="impl:getAvailiabilityResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="releaseReservationResponse">
+
+      <wsdl:part element="impl:releaseReservationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setReservationRequest">
+
+      <wsdl:part element="impl:setReservation" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="InventoryTitleImpl">
+
+      <wsdl:operation name="getAvailiability">
+
+         <wsdl:input message="impl:getAvailiabilityRequest" name="getAvailiabilityRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAvailiabilityResponse" name="getAvailiabilityResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="releaseReservation">
+
+         <wsdl:input message="impl:releaseReservationRequest" name="releaseReservationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:releaseReservationResponse" name="releaseReservationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setReservation">
+
+         <wsdl:input message="impl:setReservationRequest" name="setReservationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setReservationResponse" name="setReservationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="InventoryTitleImplSoapBinding" type="impl:InventoryTitleImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getAvailiability">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAvailiabilityRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAvailiabilityResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="releaseReservation">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="releaseReservationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="releaseReservationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setReservation">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setReservationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setReservationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="InventoryTitleImplService">
+
+      <wsdl:port binding="impl:InventoryTitleImplSoapBinding" name="InventoryTitleImpl">
+
+         <wsdlsoap:address location="http://localhost:8080/inventory/services/InventoryTitleImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
